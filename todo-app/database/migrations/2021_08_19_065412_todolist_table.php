@@ -15,8 +15,9 @@ class TodolistTable extends Migration
     {
         Schema::create('todolist',function (Blueprint $table){
             $table->id();
-            $table->string('taskName');
-            $table->enum('status',["PENDING","IN PROGRESS","DONE"]);
+            $table->foreignId("users_id");
+            $table->string('task_name');
+            $table->enum('status',["PENDING","IN_PROGRESS","DONE"]);
             $table->timestamps();
         }
         );
