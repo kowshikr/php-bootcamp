@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\DB;
 class TodoController extends Controller
 {
     //
+    public function AddTodo(Request $request,string $users_id){
+        DB::table('todolist')->insert([
+            'users_id'=>$users_id,
+            'task_name'=>$request->get('task_name'),
+            'status'=>$request->get('status'),
+        ]);
+        return "Task has been added for $users_id";
+    }
+
     public function FetchTodolist(){
         return DB::table('todolist')->get();
     }
@@ -20,12 +29,10 @@ class TodoController extends Controller
         return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->get();
     }
 
-    public function FetchTodoByStatus(string $status){
-        return DB::table('todolist')->where('status',$status)->get();
-    }
-
     public function UpdateStatus(Request $request,string $users_id,string $id){
-        return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->update(['status'=>$request->get('status')]);
+
+        DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->update(['status'=>$request->get('status')]);
+        return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->get();
     }
 
     public function DeleteTodo(string $users_id,string $id){

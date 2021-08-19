@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\usersController;
+use \App\Http\Controllers\UsersController;
 use \App\Http\Controllers\TodoController;
 
 /*
@@ -20,13 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/users',[usersController::class,'FetchUsers']);
-Route::post('/users',[usersController::class,'AddUsers']);
+Route::get('/users',[UsersController::class,'FetchUsers']);
+Route::post('/users',[UsersController::class,'AddUsers']);
+Route::post('/todolist/{users_id}',[TodoController::class,'AddTodo']);
 Route::get('/todolist',[TodoController::class,'FetchTodolist']);
 Route::get('/todolist/{users_id}',[TodoController::class,'FetchTodoByUserId']);
 Route::get('todolist/{users_id}/{id}',[TodoController::class,'FetchTodoById']);
-Route::get('todolist/status/{status}',[TodoController::class,'FetchTodoByStatus']);
 Route::patch('todolist/{users_id}/{id}',[TodoController::class,'UpdateStatus']);
-Route::delete('/users/id',[usersController::class,'DeleteUsers']);
+Route::delete('/users/{users_id}',[UsersController::class,'DeleteUsers']);
 Route::delete('/todolist/{users_id}/{id}',[TodoController::class,'DeleteTodo']);
 
