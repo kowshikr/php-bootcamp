@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67c1f3e2-a7f8-4848-baeb-54b13ba86494" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1wrFCJOEQVaJh1mcWoC9gUhL4OD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67c1f3e2-a7f8-4848-baeb-54b13ba86494" name="Default Changelist" comment="" />
+      <created>1629208673501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629208673501</updated>
+      <workItem from="1629208675417" duration="10717000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="394" y="69" key="#PHP" timestamp="1629252517898">
+      <screen x="0" y="25" width="1440" height="794" />
+    </state>
+    <state x="394" y="69" key="#PHP/0.25.1440.794@0.25.1440.794" timestamp="1629252517898" />
+    <state x="540" y="348" key="NewPhpFileDialog" timestamp="1629261046418">
+      <screen x="0" y="25" width="1440" height="791" />
+    </state>
+    <state x="540" y="348" key="NewPhpFileDialog/0.25.1440.791@0.25.1440.791" timestamp="1629261046418" />
+    <state x="540" y="349" key="NewPhpFileDialog/0.25.1440.794@0.25.1440.794" timestamp="1629208755976" />
+    <state x="385" y="189" key="run.anything.popup" timestamp="1629253447746">
+      <screen x="0" y="25" width="1440" height="794" />
+    </state>
+    <state x="385" y="189" key="run.anything.popup/0.25.1440.794@0.25.1440.794" timestamp="1629253447746" />
+  </component>
+</project>
