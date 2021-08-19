@@ -25,6 +25,7 @@ Route::post('/users',[usersController::class,'AddUsers']);
 Route::get('/todolist',[TodoController::class,'FetchTodolist']);
 Route::get('/todolist/{users_id}',[TodoController::class,'FetchTodoByUserId']);
 Route::get('todolist/{users_id}/{id}',[TodoController::class,'FetchTodoById']);
+Route::get('todolist/status/{status}',[TodoController::class,'FetchTodoByStatus']);
 Route::patch('todolist/{users_id}/{id}',[TodoController::class,'UpdateStatus']);
 Route::delete('/users/id',[usersController::class,'DeleteUsers']);
 Route::delete('/todolist/{users_id}/{id}',[TodoController::class,'DeleteTodo']);

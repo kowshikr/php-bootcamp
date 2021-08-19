@@ -20,6 +20,10 @@ class TodoController extends Controller
         return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->get();
     }
 
+    public function FetchTodoByStatus(string $status){
+        return DB::table('todolist')->where('status',$status)->get();
+    }
+
     public function UpdateStatus(Request $request,string $users_id,string $id){
         return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->update(['status'=>$request->get('status')]);
     }
