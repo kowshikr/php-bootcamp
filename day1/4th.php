@@ -7,7 +7,7 @@ function tasks_decoding($json){
     foreach ($all_players as $player){
         array_push($names,$player['name']);
         array_push($age,$player['age']);
-        array_push($city,$player['city']);
+        array_push($city,$player['address']['city']);
     }
     return [$names,$age,$city];
 }
@@ -24,20 +24,20 @@ function GetUniqueNames($names){
 }
 
 function GetMaxAgedPlayers($names,$age){
-    $nameAgeMap=[];
-    $agedPersons=[];
-    for ($i=0;$i<count($age);$i++){
-        $nameAgeMap[$names[$i]]=$age[$i];
+    $maxAge=0;
+    $AgedPersons = [];
+    for ($i = 0; $i < count($names); $i++) {
+        if ($age[$i] > $maxAge) {
+            $maxAge = $age[$i];
+            $AgedPersons = [];
+            $AgedPersons[0] = $names[$i];
+        } else if ($age[$i] == $maxAge) {
+            $AgedPersons[count($AgedPersons)] = $names[$i];
+        }
     }
-    arsort($nameAgeMap);
-    $maxAge=reset($nameAgeMap);
-    array_push($agedPersons,key($maxAge));
-    foreach($nameAgeMap as $players=>$players_age){
-
-    }
-
-
+    print_r($AgedPersons);
 }
+
 $json = "{\"players\":[
     {
         \"name\":\"Ganguly\",
