@@ -23,9 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/users',[usersController::class,'FetchUsers']);
 Route::post('/users',[usersController::class,'AddUsers']);
 Route::get('/todolist',[TodoController::class,'FetchTodolist']);
-Route::get('/todolist/{user_id}',[TodoController::class,'FetchTodoByUserId']);
-Route::get('todolist/{user_id}/{id}',[TodoController::class,'FetchTodoById']);
-Route::patch('todolist/{user_id}/{id}',[TodoController::class,'UpdateStatus']);
+Route::get('/todolist/{users_id}',[TodoController::class,'FetchTodoByUserId']);
+Route::get('todolist/{users_id}/{id}',[TodoController::class,'FetchTodoById']);
+Route::patch('todolist/{users_id}/{id}',[TodoController::class,'UpdateStatus']);
 Route::delete('/users/id',[usersController::class,'DeleteUsers']);
-Route::delete('/todolist/{user_id}/{id}',[TodoController::class,'DeleteTodo']);
+Route::delete('/todolist/{users_id}/{id}',[TodoController::class,'DeleteTodo']);
 
