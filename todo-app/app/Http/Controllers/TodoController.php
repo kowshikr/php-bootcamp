@@ -2,40 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\TodoServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TodoController extends Controller
 {
     //
-    public function AddTodo(Request $request,string $users_id){
-        DB::table('todolist')->insert([
-            'users_id'=>$users_id,
-            'task_name'=>$request->get('task_name'),
-            'status'=>$request->get('status'),
-        ]);
-        return "Task has been added for $users_id";
+    protected $todoServices;
+
+    public function __construct( TodoServices $todoServices)
+    {
+        $this->todoServices= $todoServices;
     }
 
-    public function FetchTodolist(){
-        return DB::table('todolist')->get();
+    public function AddTodo(Request $request,string $users_id,TodoServices $todoServices){
+        return $todoServices->AddTodo($request,$users_id);
     }
 
-    public function FetchTodoByUserId(string $users_id){
-        return DB::table('todolist')->where('users_id',$users_id)->get();
+    public function FetchTodolist(TodoServices $todoServices){
+        return $todoServices->GetTodolist();
     }
 
-    public function FetchTodoById(string $users_id,string $id){
-        return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->get();
+    public function FetchTodoByUserId(string $users_id,TodoServices $todoServices){
+        return $todoServices->GetTodoByUserId($users_id);
     }
 
-    public function UpdateStatus(Request $request,string $users_id,string $id){
-
-        DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->update(['status'=>$request->get('status')]);
-        return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->get();
+    public function FetchTodoById(string $users_id,string $id,TodoServices $todoServices){
+        return $todoServices->GetTodoById($users_id,$id);
     }
 
-    public function DeleteTodo(string $users_id,string $id){
-        return DB::table('todolist')->where(['users_id'=>$users_id,'id'=>$id])->delete();
+    public function UpdateStatus(Request $request,string $users_id,string $id,TodoServices $todoServices){
+        return $todoServices->ChangeStatus($request,$users_id,$id);
+    }
+
+    public function DeleteTodo(string $users_id,string $id,TodoServices $todoServices){
+       return $todoServices->DeleteTodo($users_id,$id);
     }
 }
