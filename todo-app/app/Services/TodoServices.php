@@ -18,7 +18,6 @@ class TodoServices
         } else{
             return "Given User id $users_id does not exist";
         }
-
     }
 
     public function GetTodolist(){
@@ -61,7 +60,8 @@ class TodoServices
     public function DeleteTodo(string $users_id,string $id){
         if (DB::table('users')->where('id',$users_id)->exists()) {
             if (DB::table('todolist')->where(['users_id' => $users_id, 'id' => $id])->exists()) {
-                return DB::table('todolist')->where(['users_id' => $users_id, 'id' => $id])->delete();
+                DB::table('todolist')->where(['users_id' => $users_id, 'id' => $id])->delete();
+                return "Given Task id $id is deleted for Useer id $users_id";
             }else{
                 return "Given Task id $id is not present for User id $users_id";
             }
